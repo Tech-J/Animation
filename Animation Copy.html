@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Star Wars</title>
+	<link href="https://fonts.googleapis.com/css?family=Poller+One" rel="stylesheet">
+	<style type="text/css">
+
+	#bcontainer	
+	{
+		width: 100%;
+		height: 600px;
+		position: relative;
+		background-image: url("background.gif");
+		overflow: hidden;
+	}
+	#scontainer
+	{
+		width: 100px;
+		height: 100px;
+		position: absolute;		
+		z-index: 2;		
+	}
+	#scontainer1
+	{
+		width: 100px;
+		height: 100px;
+		float: right;
+		position: relative;
+		z-index: 2;
+	}
+	#scontainer2
+	{
+		width: 100px;
+		height: 100px;
+		margin-top: 500px;
+		position: absolute;
+		z-index: 2;		
+	}
+	#scontainer3
+	{
+		width: 100px;
+		height: 100px;
+		margin-top: 500px;
+		margin-left: 1325px;
+		position: absolute;
+		z-index: 2;
+	}
+	#scontainer4
+	{
+		width: 300px;
+		height: 300px;
+		margin-top: 100px;
+		margin-left: 35%;
+		position: absolute;
+		visibility: hidden;
+		z-index: 2;
+	}
+	#scontainer5
+	{
+		width: 300px;
+		height: 300px;
+		margin-top: 270px;
+		margin-left: 46%;
+		position: absolute;
+		z-index: 1;
+		
+	}
+	#s2
+	{
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+	}
+	#s3
+	{
+    -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+    transform: rotate(270deg);
+	}
+	#s4
+	{
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+	}
+	#s6
+	{
+		position: absolute;
+	}
+	h1
+	{
+		font-family: 'Poller One', cursive;
+		text-align: center;
+		font-size: 40px;
+	}
+	h2	
+	{
+		text-align: center;
+		text-decoration: underline;
+	}
+	p
+	{
+		text-align: center;
+	}
+	#M
+	{
+		font-size: 20px;
+	}
+	</style>
+</head>
+<body>
+<h1 onmouseover="this.style.color='yellow' ">STAR <br>WARS</h1>
+<h2>The Sacrifice Of The StarFighter</h2>
+<div id="bcontainer">
+<div id="scontainer">
+<img id="s1" src="starfighter1.jpg" width="100px" height="100px">
+</div>
+<div id="scontainer1">
+<img id="s2" src="starfighter1.jpg" width="100px" height="100px">
+</div>
+<div id="scontainer2">
+<img id="s3" src="starfighter1.jpg" width="100px" height="100px">
+</div>
+<div id="scontainer3">
+<img id="s4" src="starfighter1.jpg" width="100px" height="100px">
+</div>
+<div id="scontainer4">
+<img id="s5" src="explosion.gif" width="400px" height="400px">
+</div>
+<div id="scontainer5">
+<img id="s6" src="imperialShip.jpeg" width="125px" height="125px">
+</div>
+</div>
+<p id="M" onmouseover="this.style.color='yellow' ">
+	
+</p>
+<p>
+	<button onclick="move()">Click Me</button>
+</p>
+<script>
+function move()
+{
+		document.getElementById('s5').style.visibility = "hidden" ;
+		document.getElementById('M').innerHTML = "" ;
+		var elm = document.getElementById('scontainer');
+		var elm2 = document.getElementById('scontainer1');
+		var elm3 = document.getElementById('scontainer2');
+		var elm4 = document.getElementById('scontainer3');
+		var pos = 0;
+		var pos1 = 0;
+		var pos2 = 0;
+		var id = setInterval(frame, 100);
+		var id2 = setInterval(frame2, 100);
+
+
+	/*function frame2()
+	{
+		if(pos2<350)
+		{
+			pos2+=90;
+			getElementById('s6').style.transform= "rotate(pos2+"deg")";
+		}	
+	}	*/
+		
+	function frame()
+	{
+		if(pos == 220)
+		{
+		clearInterval(id)	
+		 //pos=0;
+		 //pos1=0;
+		 document.getElementById('s6').style.visibility = "hidden" ;		 
+		 document.getElementById('s5').style.visibility = "visible" ;
+		 document.getElementById('s4').style.visibility = "hidden" ;
+		 document.getElementById('s3').style.visibility = "hidden" ;
+		 document.getElementById('s2').style.visibility = "hidden" ;
+		 document.getElementById('s1').style.visibility = "hidden" ;
+		 document.getElementById('M').innerHTML = "Mission Complete" ;
+		}
+		else
+		{		 
+		document.getElementById('s6').style.visibility = "visible" ;	
+		document.getElementById('s4').style.visibility = "visible" ;
+		 document.getElementById('s3').style.visibility = "visible" ;
+		 document.getElementById('s2').style.visibility = "visible" ;
+		 document.getElementById('s1').style.visibility = "visible" ;
+			pos+=10;
+			pos1-=10;
+			elm.style.top = (pos+70) + "px";
+			elm.style.left = (pos*3) + "px";
+			elm2.style.top = (pos+70) + "px";
+			elm2.style.left = (pos1*3) + "px";
+			elm3.style.top = pos1 + "px";
+			elm3.style.left = (pos*3) + "px";
+			elm4.style.top = pos1 + "px";
+			elm4.style.left = (pos1*3) + "px";
+		}
+	}
+}
+</script>
+
+</body>
+</html>
